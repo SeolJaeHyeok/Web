@@ -22,6 +22,11 @@
         margin: 0px;
         text-decoration: none;
       }
+      #toggle {
+        position: fixed;
+        top: 30px;
+        right: 10px;
+      }
       h1 {
         padding: 20px;
         border-bottom: solid 2px black;
@@ -43,6 +48,23 @@
   </head>
   <body>
     <h1><a href="index.html">WEB</a></h1>
+    <input
+      id="toggle"
+      type="button"
+      value="night"
+      onclick="
+        let button = document.querySelector('input');
+        if (this.value === 'night') {
+          body.style.backgroundColor = 'black';
+          body.style.color = 'white';
+          this.value = 'morning';
+        } else {
+          body.style.backgroundColor = 'white';
+          body.style.color = 'black';
+          this.value = 'night';
+        }
+      "
+    />
     <p style="margin-bottom: 20px">
       WWW is <strong>World <u>Wide</u> WEB.</strong>
     </p>
