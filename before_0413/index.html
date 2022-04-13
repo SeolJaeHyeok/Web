@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WEB - milkboy</title>
+    <meta charset="utf-8" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-EJS4NVYZW5"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-EJS4NVYZW5");
+    </script>
+    <style>
+      * {
+        margin: 0px;
+        text-decoration: none;
+      }
+      #toggle {
+        position: fixed;
+        top: 30px;
+        right: 10px;
+      }
+      h1 {
+        padding: 20px;
+        border-bottom: solid 2px black;
+        margin-bottom: 20px;
+      }
+
+      @media all and (min-width: 480px) {
+        #container {
+          display: grid;
+          grid-template-columns: 150px 1fr;
+        }
+        ol {
+          margin-right: 20px;
+          border-right: solid 2px black;
+          transition: ease-in-out 0.1s;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1><a href="index.html">WEB</a></h1>
+    <input
+      id="toggle"
+      type="button"
+      value="night"
+      onclick="
+        let button = document.querySelector('input');
+        if (this.value === 'night') {
+          body.style.backgroundColor = 'black';
+          body.style.color = 'white';
+          this.value = 'morning';
+        } else {
+          body.style.backgroundColor = 'white';
+          body.style.color = 'black';
+          this.value = 'night';
+        }
+      "
+    />
+    <p style="margin-bottom: 20px">
+      WWW is <strong>World <u>Wide</u> WEB.</strong>
+    </p>
+
+    <div id="container">
+      <ol>
+        <li><a href="html.html">HTML</a></li>
+        <li><a href="css.html">CSS</a></li>
+        <li><a href="js.html">JavaScript</a></li>
+        <li><a href="review.html">Review</a></li>
+      </ol>
+      <div>
+        <h2>Welcome</h2>
+        Hello, Milkboy!
+      </div>
+    </div>
+  </body>
+</html>
