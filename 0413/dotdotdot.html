@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .button {
+        border: none;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    JavaScript is
+    <span
+      ><button
+        class="button"
+        onclick="
+      this.classList.toggle('hidden')
+      let info = document.querySelector('.info');
+      info.classList.toggle('hidden');
+      "
+      >
+        ...
+      </button></span
+    >
+    <span class="info hidden"
+      >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate,
+      quod? Asperiores dolores tempore quisquam quam ducimus, optio minus qui
+      minima, ea molestias veritatis aperiam similique error. Libero voluptate
+      porro praesentium!
+    </span>
+  </body>
+</html>
