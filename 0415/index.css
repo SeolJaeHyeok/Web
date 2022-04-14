@@ -2,14 +2,14 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
-  background-color: rgba(20, 20, 20, 1);
+  background-color: #2f3640;
   color: white;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
+/* Header */
 .main-title {
-  border: solid 1px white;
-  border-radius: 10px;
+  border-radius: 5px;
   text-align: center;
   margin-top: 20px;
   margin-left: 20px;
@@ -24,7 +24,43 @@
 }
 
 .nav-bar .nav-item {
-  border: solid 1px white;
   padding: 5px;
-  border-radius: 10px;
+  border-radius: 5px;
+  box-shadow: rgb(0 0 0 / 80%) 0px 1px 3px 2px;
+}
+
+.nav-bar .nav-item:last-child {
+  margin-right: 20px;
+}
+
+.active {
+  border-bottom: 3px solid white;
+}
+
+/* Section */
+.hidden {
+  display: none;
+  border: none;
+}
+
+.section-container {
+  margin: 50px 20px;
+  padding: 20px;
+  border: solid 1px white;
+  border-radius: 5px;
+}
+
+/* Top Button */
+#top-btn button {
+  font-size: 20px;
+  color: black;
+  background-color: white;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: solid 1px #333;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
 }
