@@ -21,6 +21,26 @@ for (navItem of navItems) {
   };
 }
 
+// Scroll할 때 Header 없애기
+const header = document.querySelector(".header");
+const body = document.querySelector("body");
+const onScrollHeader = () => {
+  if (window.scrollY >= 50) {
+    header.classList.add("hidden");
+  } else {
+    header.classList.remove("hidden");
+  }
+};
+
+const onMouseMove = (e) => {
+  if (e.clientY <= 83) {
+    header.classList.remove("hidden");
+  }
+};
+
+body.addEventListener("mousewheel", onScrollHeader);
+body.addEventListener("mousemove", onMouseMove);
+
 // Go Top Button
 let topBtn = document.querySelector("#top-btn button");
 const onTopClick = (e) => {
