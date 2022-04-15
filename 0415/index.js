@@ -46,6 +46,7 @@ let topBtn = document.querySelector("#top-btn button");
 const onTopClick = (e) => {
   e.preventDefault();
   window.scrollTo({ top: 0, behavior: "smooth" });
+  header.classList.remove("hidden");
 };
 
 topBtn.addEventListener("click", onTopClick);
