@@ -58,6 +58,11 @@
   margin-right: 20px;
 }
 
+.link-bar {
+  margin-left: 330px;
+  padding: 10px;
+}
+
 .active {
   border-bottom: 3px solid white;
 }
