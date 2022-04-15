@@ -1,5 +1,5 @@
 // Scroll Navigation
-const navItems = document.querySelectorAll(".nav-item");
+const navItems = document.querySelectorAll(".nav-item")[0].children;
 for (navItem of navItems) {
   navItem.onclick = function (e) {
     e.preventDefault();
@@ -9,37 +9,17 @@ for (navItem of navItems) {
 
     // 선택한 Tab 밑줄
     for (item of navItems) {
-      item.children[0].classList.remove("active");
+      item.children[0].classList.remove("item-active");
     }
-    e.target.classList.add("active");
+    e.target.classList.add("item-active");
 
     // 스크롤 애니메이션
     window.scrollTo({
       behavior: "smooth",
-      top: targetEl.offsetTop - 50,
+      top: targetEl.offsetTop,
     });
   };
 }
-
-// Scroll할 때 Header 없애기
-const header = document.querySelector(".header");
-const body = document.querySelector("body");
-const onScrollHeader = () => {
-  if (window.scrollY >= 50) {
-    header.classList.add("hidden");
-  } else {
-    header.classList.remove("hidden");
-  }
-};
-
-const onMouseMove = (e) => {
-  if (e.clientY <= 83) {
-    header.classList.remove("hidden");
-  }
-};
-
-body.addEventListener("mousewheel", onScrollHeader);
-body.addEventListener("mousemove", onMouseMove);
 
 // Go Top Button
 let topBtn = document.querySelector("#top-btn button");
@@ -50,3 +30,13 @@ const onTopClick = (e) => {
 };
 
 topBtn.addEventListener("click", onTopClick);
+
+// toggle Menu Button
+const toggleBtn = document.querySelector(".navbar_toggleBtn");
+const menu = document.querySelector(".nav-item");
+const links = document.querySelector(".link-bar");
+
+toggleBtn.addEventListener("click", () => {
+  menu.classList.toggle("active");
+  links.classList.toggle("active");
+});
