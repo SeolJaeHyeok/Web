@@ -2,7 +2,7 @@ let body = document.querySelector("body");
 let button = document.querySelector("#toggle");
 let nodes = document.querySelectorAll("a");
 
-function toggleMode(value) {
+export function toggleMode(value) {
   if (value === "night") {
     body.style.backgroundColor = "black";
     body.style.color = "white";
