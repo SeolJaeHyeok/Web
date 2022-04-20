@@ -12,7 +12,7 @@
           href="#"
           onclick="
           event.preventDefault();
-          greeting();
+          greeting(event);
           "
           >WEB</a
         >
@@ -24,7 +24,7 @@
         <li><a href="/read/2">css</a></li> -->
       </ol>
     </nav>
-    <article id="greeting">
+    <article>
       <!-- <h2>Welcome</h2>
       Hello, Web -->
     </article>
@@ -39,14 +39,17 @@
         { id: 2, title: "css", body: "css is ..." },
         { id: 3, title: "js", body: "javascript is ..." },
       ];
+      let nextId = 4;
       let selectedId = null;
+
       function navHandler(e) {
         // 1. 링크 작동 X
         e.preventDefault();
         // 2. 아이디 값을 알아낸다
         selectedId = parseInt(e.target.id);
-        read();
+        read(selectedId);
       }
+
       function nav() {
         const tags = topics
           .map(
@@ -57,15 +60,17 @@
 
         document.querySelector("nav>ol").innerHTML = tags;
       }
+
       function greeting() {
-        document.querySelector("#greeting").innerHTML = `
+        document.querySelector("article").innerHTML = `
         <h2>Welcome</h2>
         Hello, Web
         `;
         selectedId = null;
         control();
       }
-      function read() {
+
+      function read(selectedId) {
         // 3. 아이디와 일치하는 topic의 원소 찾기
         const topic = topics.filter((topic) => topic.id === selectedId)[0];
         // 4. 본문 만들기
@@ -74,9 +79,33 @@
         document.querySelector("article").innerHTML = content;
         control();
       }
-      function create() {}
+
+      function createHandler(e) {
+        e.preventDefault();
+        const title = e.target.title.value;
+        const body = e.target.body.value;
+        console.log(title, body);
+        topics.push({ id: nextId, title, body });
+        nav();
+        read(nextId);
+        nextId++;
+      }
+
+      function create() {
+        const content = `
+        <form onsubmit="createHandler(event);">
+          <p><input type="text" name="title" placeholder="제목"></p>
+          <p><textarea name="body" placeholder="본문"></textarea></p>
+          <p><input type="submit" value="create"></p>
+        </form>
+        `;
+        document.querySelector("article").innerHTML = content;
+      }
+
       function update() {}
+
       function del() {}
+
       function control() {
         let contextUI = "";
         if (selectedId !== null) {
@@ -85,10 +114,11 @@
         }
 
         document.querySelector("#control").innerHTML = `
-        <li><a href="/create">Create</a></li>
+        <li><a href="/create" onclick="event.preventDefault(); create();">Create</a></li>
         ${contextUI}
         `;
       }
+
       nav();
       greeting();
       control();
