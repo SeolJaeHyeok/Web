@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a
+          href="#"
+          onclick="
+          event.preventDefault();
+          greeting();
+          "
+          >WEB</a
+        >
+      </h1>
+    </header>
+    <nav>
+      <ol>
+        <!-- <li><a href="/read/1">html</a></li>
+        <li><a href="/read/2">css</a></li> -->
+      </ol>
+    </nav>
+    <article id="greeting">
+      <!-- <h2>Welcome</h2>
+      Hello, Web -->
+    </article>
+    <ol id="control">
+      <!-- <li><a href="/create">Create</a></li>
+      <li><a href="/update">Update</a></li>
+      <li><a href="/delete">Delete</a></li> -->
+    </ol>
+    <script>
+      const topics = [
+        { id: 1, title: "html", body: "html is ..." },
+        { id: 2, title: "css", body: "css is ..." },
+        { id: 3, title: "js", body: "javascript is ..." },
+      ];
+      let selectedId = null;
+      function navHandler(e) {
+        // 1. 링크 작동 X
+        e.preventDefault();
+        // 2. 아이디 값을 알아낸다
+        selectedId = parseInt(e.target.id);
+        read();
+      }
+      function nav() {
+        const tags = topics
+          .map(
+            (topic) =>
+              `<li><a href=/read/${topic.id} id=${topic.id} onclick="navHandler(event);">${topic.title}</a></li>`
+          )
+          .join("");
+
+        document.querySelector("nav>ol").innerHTML = tags;
+      }
+      function greeting() {
+        document.querySelector("#greeting").innerHTML = `
+        <h2>Welcome</h2>
+        Hello, Web
+        `;
+        selectedId = null;
+        control();
+      }
+      function read() {
+        // 3. 아이디와 일치하는 topic의 원소 찾기
+        const topic = topics.filter((topic) => topic.id === selectedId)[0];
+        // 4. 본문 만들기
+        const content = `<h2>${topic.title}</h2>${topic.body}`;
+        // 5. 본문 출력
+        document.querySelector("article").innerHTML = content;
+        control();
+      }
+      function create() {}
+      function update() {}
+      function del() {}
+      function control() {
+        let contextUI = "";
+        if (selectedId !== null) {
+          contextUI = `<li><a href="/update">Update</a></li>
+        <li><a href="/delete">Delete</a></li>`;
+        }
+
+        document.querySelector("#control").innerHTML = `
+        <li><a href="/create">Create</a></li>
+        ${contextUI}
+        `;
+      }
+      nav();
+      greeting();
+      control();
+    </script>
+  </body>
+</html>
