@@ -1,0 +1,24 @@
+{
+  "topics": [
+    {
+      "id": 1,
+      "title": "html",
+      "body": "html is ..."
+    },
+    {
+      "id": 2,
+      "title": "css",
+      "body": "css is ..."
+    },
+    {
+      "title": "JS",
+      "body": "javascript is ...",
+      "id": 3
+    },
+    {
+      "title": "SQL",
+      "body": "SQL is ...",
+      "id": 6
+    }
+  ]
+}
