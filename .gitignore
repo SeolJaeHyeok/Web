@@ -1,2 +1,8 @@
+.DS_Store
 
 0415/.DS_Store
+
+Hang Man Game/node_modules/
+Hang Man Game/dist/
+Hang Man Game/.cache
+Hang Man Game/.DS_Store
