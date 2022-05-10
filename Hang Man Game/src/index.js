@@ -1,5 +1,4 @@
-import App from "./app.js";
-import "./index.css";
+const App = require("./app");
 
 const run = () => {
   window.addEventListener("DOMContentLoaded", () => {

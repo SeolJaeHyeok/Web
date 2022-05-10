@@ -1,4 +1,3 @@
-import "./app.css";
 import {
   initializeState,
   initialState,
@@ -66,4 +65,4 @@ const App = () => {
   });
 };
 
-export default App;
+module.exports = App;
