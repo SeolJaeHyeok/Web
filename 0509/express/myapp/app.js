@@ -8,6 +8,7 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var callRouter = require("./routes/call");
 const postRouter = require("./routes/post");
+const blogRouter = require("./routes/blog");
 
 const dbconnect = require("./models/index");
 dbconnect();
@@ -28,6 +29,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/test", callRouter);
 app.use("/expost", postRouter);
+app.use("/blog", blogRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
