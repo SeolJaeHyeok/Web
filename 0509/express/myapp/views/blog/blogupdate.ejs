@@ -7,14 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>블로그 글쓰기</h2>
-    <form action="/blog/write" method="post">
-        <input type="text" name="title">
-        <textarea name="content" id="" cols="30" rows="10"></textarea>
+    <h2>블로그 수정하기</h2>
+    <form action="/blog/updatewrite/<%=content.no%>" method="post">
+        <input type="text" name="title" value="<%=content.title %>">
+        <textarea name="content" id="" cols="30" rows="10"><%=content.content %></textarea>
         <input type="submit" value="전송하기">
     </form>
-    <!-- 글 제목 -->
 </body>
 </html>
 
-<!-- 글의 제목이 뜨고 제목을 클릭 ==> 본문 내용으로 이동. -->
