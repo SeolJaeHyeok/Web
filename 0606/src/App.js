@@ -1,22 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
-function Header(){
-  return <header><h1><a href="/">WWW</a></h1></header>
+function Header() {
+  return (
+    <header>
+      <h1>
+        <a href="/">WWW</a>
+      </h1>
+    </header>
+  );
 }
-function Nav(){
-  return <nav>
-    <ol>
-        <li><a href="/read/1">html</a></li>
-        <li><a href="/read/2">css</a></li>
-    </ol>
-  </nav>
+function Nav() {
+  return (
+    <nav>
+      <ol>
+        <li>
+          <a href="/read/1">html</a>
+        </li>
+        <li>
+          <a href="/read/2">css</a>
+        </li>
+      </ol>
+    </nav>
+  );
 }
-function Article(){
-  return <article>
-    <h2>Welcome</h2>
-    Hello, WEB!
-  </article>
+function Article() {
+  return (
+    <article>
+      <h2>Welcome</h2>
+      Hello, WEB!
+    </article>
+  );
 }
 function App() {
   return (
