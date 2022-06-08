@@ -1,7 +1,8 @@
-import logo from "./logo.svg";
 import "./App.css";
+import Button from "@mui/material/Button";
+import { ButtonGroup } from "@mui/material";
 
-function Header() {
+const Header = () => {
   return (
     <header>
       <h1>
@@ -9,35 +10,62 @@ function Header() {
       </h1>
     </header>
   );
-}
-function Nav() {
+};
+const Nav = ({ topics }) => {
   return (
     <nav>
       <ol>
-        <li>
-          <a href="/read/1">html</a>
-        </li>
-        <li>
-          <a href="/read/2">css</a>
-        </li>
+        {topics.map(({ id, title, desc }) => (
+          <li key={id}>
+            <a href={"/read/" + title}>{desc}</a>
+          </li>
+        ))}
       </ol>
     </nav>
   );
-}
-function Article() {
+};
+const Article = () => {
   return (
     <article>
       <h2>Welcome</h2>
       Hello, WEB!
     </article>
   );
-}
+};
+
+const handleCreate = (e) => {
+  console.log(e.target);
+};
+
+const handleUpdate = (e) => {
+  console.log(e.target);
+};
+
+const handleDelete = (e) => {
+  console.log(e.target);
+};
+
 function App() {
+  const topics = [
+    { id: 1, title: "html", desc: "HTML is ..." },
+    { id: 2, title: "css", desc: "CSS is ..." },
+  ];
   return (
     <div>
-      <Header></Header>
-      <Nav></Nav>
-      <Article></Article>
+      <Header />
+      <Nav topics={topics} />
+      <Article />
+      <ButtonGroup>
+        <Button variant="contained" onClick={handleCreate}>
+          Create
+        </Button>
+        <Button variant="contained" onClick={handleUpdate}>
+          Update
+        </Button>
+      </ButtonGroup>
+      <Button variant="contained" onClick={handleDelete}>
+        Delete
+      </Button>
     </div>
   );
 }
